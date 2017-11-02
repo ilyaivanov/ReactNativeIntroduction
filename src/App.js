@@ -41,7 +41,7 @@ const App = StackNavigator({
   HtmlAnimation: {
     screen: HtmlAnimation,
     navigationOptions: ({navigation}) => ({
-      title: `Slow Animation`,
+      title: `Html Animation`,
 
       ...headerProps
     }),
