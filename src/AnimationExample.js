@@ -52,13 +52,11 @@ export default class Animation extends React.Component {
     });
 
     return (
-      <View style={s.container}>
-        <TouchableOpacity onPress={this.animate}>
-          <Animated.View style={[s.box, {transform, width, height}]}>
-            <Animated.Text style={{color, fontSize}}>Press me</Animated.Text>
-          </Animated.View>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity style={s.container} onPress={this.animate}>
+        <Animated.View style={[s.box, {transform, width, height}]}>
+          <Animated.Text style={{color, fontSize}}>Press</Animated.Text>
+        </Animated.View>
+      </TouchableOpacity>
     );
   }
 }
