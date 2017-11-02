@@ -58,6 +58,6 @@ export default class Shell extends React.Component {
 const s = StyleSheet.create({
   shell: {
     flex: 1,
-    paddingTop: Platform.os === 'android' ? StatusBar.currentHeight : 0,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
 });
