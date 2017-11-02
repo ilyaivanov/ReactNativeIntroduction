@@ -1,20 +1,23 @@
 import React from 'react';
-import {Text, View, StyleSheet, TouchableOpacity, StatusBar} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import colors from './colors';
 
 export default class Home extends React.Component {
+
+  renderSection = (style, text, targetScreen) => (
+    <TouchableOpacity style={[s.section, style]} onPress={() => this.props.navigation.navigate(targetScreen)}>
+      <Text style={s.title}>{text}</Text>
+    </TouchableOpacity>
+  );
+
   render() {
+    const {navigation} = this.props;
     return <View style={s.container}>
-      <StatusBar barStyle="light-content"/>
-      <TouchableOpacity style={[s.section, s.slow]}>
-        <Text style={s.title}>Slow animation</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={[s.section, s.fast]}>
-        <Text style={s.title}>Native animation</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={[s.section, s.game]}>
-        <Text style={s.title}>Game</Text>
-      </TouchableOpacity>
+      {this.renderSection(s.slow, 'Slow animation', 'SlowAnimation')}
+
+      {this.renderSection(s.fast, 'Native animation', 'NativeAnimation')}
+
+      {this.renderSection(s.game, 'Game', 'Game')}
     </View>;
   }
 }
