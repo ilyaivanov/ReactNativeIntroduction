@@ -44,14 +44,12 @@ const s = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-between',
-    paddingLeft: padding,
-    paddingRight: padding,
-    paddingBottom: padding,
+    padding,
   },
   buttons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 10,
+    padding,
   },
   row: {
     flexDirection: 'row',
