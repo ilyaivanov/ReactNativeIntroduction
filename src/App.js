@@ -4,7 +4,7 @@ import colors from './colors';
 import Game from './game/Game';
 import Home from './Home';
 import NativeAnimation from './NativeAnimation';
-import SlowAnimation from './SlowAnimation';
+import SlowAnimation from './slow/SlowAnimation';
 
 const headerProps = {
   headerStyle: {

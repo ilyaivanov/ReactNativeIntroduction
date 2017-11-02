@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="myContainer">
+    <div id="box"/>
+</div>
+
+</body>
+
+<script>
+  document.getElementById('box').addEventListener('click', function () {
+    toggleClass(document.getElementById('box'), 'animated');
+  });
+
+  function toggleClass(el, _class) {
+    if (el && el.className && el.className.indexOf(_class) >= 0) {
+      const pattern = new RegExp('\\s*' + _class + '\\s*');
+      el.className = el.className.replace(pattern, ' ');
+    }
+    else {
+      el.className = el.className + ' ' + _class;
+    }
+  }
+</script>
+
+<style>
+    #myContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    #box {
+        background-color: #673ab7;
+        height: 75px;
+        width: 75px;
+
+    }
+    .animated {
+        animation-name: example;
+        animation-duration: 1s;
+    }
+
+    @keyframes example {
+        0% {
+            transform: scale(1) rotate(0);
+        }
+        50% {
+            transform: scale(3) rotate(360deg);
+        }
+        100% {
+
+            transform: scale(1) rotate(0);
+        }
+    }
+</style>
+</html>
