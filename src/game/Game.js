@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import {Button, StyleSheet, View} from 'react-native';
-import colors from '../colors';
 import Cell from './Cell';
 import {cellHeight, padding} from './const';
 import flipCell from './flipCell';
-import {cross, diamond, square, random} from './levels';
+import {cross, diamond, random, square} from './levels';
 
 export default class App extends Component {
   state = {
@@ -14,12 +13,16 @@ export default class App extends Component {
   updateCell = (row, column) =>
     this.setState({rows: flipCell(this.state.rows, row, column)});
 
+  renderCell = (rowIndex, columnIndex, isEnabled) => (
+    <Cell style={{height: cellHeight}}
+          key={columnIndex}
+          enabled={isEnabled}
+          onPress={() => this.updateCell(rowIndex, columnIndex)}/>
+  );
+
   renderRow = (row, rowIndex) => (
     <View style={s.row} key={rowIndex}>
-      {row.map((cell, columnIndex) => <Cell style={{height: cellHeight}}
-                                            key={columnIndex}
-                                            enabled={cell !== 0}
-                                            onPress={() => this.updateCell(rowIndex, columnIndex)}/>)}
+      {row.map((cell, columnIndex) => this.renderCell(rowIndex, columnIndex, cell === 1))}
     </View>
   );
 
@@ -53,13 +56,5 @@ const s = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
-  },
-
-  cell: {
-    flex: 1,
-    width: '100%',
-  },
-  cellEnabled: {
-    backgroundColor: colors.blue['300'],
   },
 });
