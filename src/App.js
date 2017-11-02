@@ -5,7 +5,6 @@ import colors from './colors';
 import Game from './game/Game';
 import Home from './Home';
 import NativeAnimation from './NativeAnimation';
-import HtmlAnimation from './html/HtmlAnimation';
 
 const headerProps = {
   headerStyle: {
@@ -33,15 +32,7 @@ const App = StackNavigator({
   NativeAnimation: {
     screen: NativeAnimation,
     navigationOptions: ({navigation}) => ({
-      title: `Native Animation`,
-
-      ...headerProps
-    }),
-  },
-  HtmlAnimation: {
-    screen: HtmlAnimation,
-    navigationOptions: ({navigation}) => ({
-      title: `Html Animation`,
+      title: `Animation`,
 
       ...headerProps
     }),
@@ -51,6 +42,7 @@ const App = StackNavigator({
 export default class Shell extends React.Component {
   render() {
     return <View style={s.shell}>
+      <StatusBar translucent={true}/>
       <App/>
     </View>;
   }

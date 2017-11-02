@@ -11,9 +11,7 @@ export default class Home extends React.Component {
 
   render() {
     return <View style={s.container}>
-      {this.renderSection(s.slow, 'HTML animation', 'HtmlAnimation')}
-
-      {this.renderSection(s.fast, 'Native animation', 'NativeAnimation')}
+      {this.renderSection(s.fast, 'Animation Example', 'NativeAnimation')}
 
       {this.renderSection(s.game, 'Game', 'Game')}
     </View>;
@@ -30,11 +28,8 @@ const s = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 23,
+    fontSize: 26,
     color: 'white',
-  },
-  slow: {
-    backgroundColor: colors.deepPurple['500'],
   },
   fast: {
     backgroundColor: colors.indigo['500'],
