@@ -5,7 +5,7 @@ import MyComponent from './MyComponent';
 export default () => (
   <View style={s.container}>
     <StatusBar barStyle="light-content" animated/>
-    <Text>Running on {Platform.OS === 'ios' ? 'iOS' : 'Android'}</Text>
+    <Text>Running on {Platform.OS}</Text>
     <Button title="My Button" onPress={() => Alert.alert('Button was pressed')}/>
     <MyComponent/>
   </View>
@@ -15,6 +15,6 @@ const s = {
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
   },
 };

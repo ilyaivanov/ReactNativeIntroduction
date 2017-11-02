@@ -14,6 +14,7 @@ const headerProps = {
     backgroundColor: colors.blueGrey['200'],
   },
 };
+
 const page = (name, component, title) => ({
   [name]: {
     screen: component,

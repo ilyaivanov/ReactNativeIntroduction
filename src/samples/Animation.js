@@ -8,7 +8,7 @@ const size = 75;
 export default class Animation extends React.Component {
   isAnimating = false;
   state = {
-    animation: new Animated.Value(0), //0 .. 1
+    animation: new Animated.Value(0),
   };
 
   animate = () => {
@@ -21,13 +21,13 @@ export default class Animation extends React.Component {
       toValue: 0,
       duration,
     }).start(() => this.isAnimating = false);
-    const s = Animated.timing(this.state.animation, {toValue: 1, duration}).start(onEnd);
+    Animated.timing(this.state.animation, {toValue: 1, duration}).start(onEnd);
   };
 
   render() {
-    const rotate = this.state.animation.interpolate({
+    const backgroundColor = this.state.animation.interpolate({
       inputRange: [0, 1],
-      outputRange: ['0deg', '1800deg'],
+      outputRange: [colors.blueGrey['900'], colors.blueGrey['200']],
     });
 
     const screenWidth = Dimensions.get('window').width;
@@ -39,11 +39,10 @@ export default class Animation extends React.Component {
       inputRange: [0, 1],
       outputRange: [size, screenWidth],
     });
-    const transform = [{rotate}];
 
     const color = this.state.animation.interpolate({
       inputRange: [0, 1],
-      outputRange: ['white', 'black'],
+      outputRange: [colors.lightText.primary, colors.darkText.primary],
     });
 
     const fontSize = this.state.animation.interpolate({
@@ -53,7 +52,7 @@ export default class Animation extends React.Component {
 
     return (
       <TouchableOpacity style={s.container} onPress={this.animate}>
-        <Animated.View style={[s.box, {transform, width, height}]}>
+        <Animated.View style={[s.box, {backgroundColor, width, height}]}>
           <Animated.Text style={{color, fontSize}}>Press</Animated.Text>
         </Animated.View>
       </TouchableOpacity>
