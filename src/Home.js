@@ -3,7 +3,6 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import colors from './colors';
 
 export default class Home extends React.Component {
-
   renderSection = (style, text, targetScreen) => (
     <TouchableOpacity style={[s.section, style]} onPress={() => this.props.navigation.navigate(targetScreen)}>
       <Text style={s.title}>{text}</Text>
@@ -11,7 +10,6 @@ export default class Home extends React.Component {
   );
 
   render() {
-    const {navigation} = this.props;
     return <View style={s.container}>
       {this.renderSection(s.slow, 'Slow animation', 'SlowAnimation')}
 
