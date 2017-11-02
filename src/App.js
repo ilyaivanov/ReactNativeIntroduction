@@ -4,7 +4,7 @@ import {StackNavigator} from 'react-navigation';
 import colors from './colors';
 import Game from './game/Game';
 import Home from './Home';
-import NativeAnimation from './NativeAnimation';
+import AnimationExample from './AnimationExample';
 
 const headerProps = {
   headerStyle: {
@@ -29,8 +29,8 @@ const App = StackNavigator({
       ...headerProps
     }),
   },
-  NativeAnimation: {
-    screen: NativeAnimation,
+  AnimationExample: {
+    screen: AnimationExample,
     navigationOptions: ({navigation}) => ({
       title: `Animation`,
 

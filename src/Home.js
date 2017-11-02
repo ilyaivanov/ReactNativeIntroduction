@@ -11,7 +11,7 @@ export default class Home extends React.Component {
 
   render() {
     return <View style={s.container}>
-      {this.renderSection(s.fast, 'Animation Example', 'NativeAnimation')}
+      {this.renderSection(s.fast, 'Animation Example', 'AnimationExample')}
 
       {this.renderSection(s.game, 'Game', 'Game')}
     </View>;
