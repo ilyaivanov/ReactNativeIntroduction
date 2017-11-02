@@ -1,4 +1,5 @@
 import React from 'react';
+import {StatusBar, StyleSheet, View, Platform} from 'react-native';
 import {StackNavigator} from 'react-navigation';
 import colors from './colors';
 import Game from './game/Game';
@@ -12,7 +13,7 @@ const headerProps = {
   },
 };
 
-export default StackNavigator({
+const App = StackNavigator({
   Home: {
     screen: Home,
     navigationOptions: ({navigation}) => ({
@@ -44,5 +45,19 @@ export default StackNavigator({
 
       ...headerProps
     }),
+  },
+});
+
+export default class Shell extends React.Component {
+  render() {
+    return <View style={s.shell}>
+      <App/>
+    </View>;
+  }
+}
+const s = StyleSheet.create({
+  shell: {
+    flex: 1,
+    paddingTop: Platform.os === 'android' ? StatusBar.currentHeight : 0,
   },
 });
