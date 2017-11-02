@@ -4,45 +4,39 @@ import {StackNavigator} from 'react-navigation';
 import colors from './colors';
 import Game from './game/Game';
 import Home from './Home';
-import AnimationExample from './AnimationExample';
+import AnimationExample from './samples/Animation';
+import StaticBox from './samples/StaticBox';
+import Interaction from './samples/Interaction';
+import Customization from './samples/PlatformSpecific/PlatformSpecific';
 
 const headerProps = {
   headerStyle: {
     backgroundColor: colors.blueGrey['200'],
   },
 };
-
-const App = StackNavigator({
-  Home: {
-    screen: Home,
+const page = (name, component, title) => ({
+  [name]: {
+    screen: component,
     navigationOptions: ({navigation}) => ({
-      title: `React Native Intro`,
-
-      ...headerProps
-    }),
-  },
-  Game: {
-    screen: Game,
-    navigationOptions: ({navigation}) => ({
-      title: `Switch game`,
-
-      ...headerProps
-    }),
-  },
-  AnimationExample: {
-    screen: AnimationExample,
-    navigationOptions: ({navigation}) => ({
-      title: `Animation`,
-
+      title,
       ...headerProps
     }),
   },
 });
 
+const App = StackNavigator({
+  ...page('Home', Home, 'React Native Introduction'),
+  ...page('Game', Game, 'Switch game'),
+  ...page('AnimationExample', AnimationExample, 'Animation'),
+  ...page('StaticBox', StaticBox, 'Layout & Styling'),
+  ...page('Interaction', Interaction, 'Interaction'),
+  ...page('Customization', Customization, 'Platform'),
+});
+
 export default class Shell extends React.Component {
   render() {
     return <View style={s.shell}>
-      <StatusBar translucent={true}/>
+      <StatusBar translucent={true} />
       <App/>
     </View>;
   }

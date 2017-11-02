@@ -9,14 +9,14 @@ export default class Cell extends Component {
     });
   };
 
+  shouldComponentUpdate = () => false;
+
   componentWillReceiveProps(newProps) {
     if (newProps.enabled)
       Animated.timing(this.state.colorAnimated, {toValue: 1, duration: 100}).start();
     else
       Animated.timing(this.state.colorAnimated, {toValue: 0, duration: 100}).start();
   }
-
-  shouldComponentUpdate = () => false;
 
   render() {
     const backgroundColor = this.state.colorAnimated.interpolate({

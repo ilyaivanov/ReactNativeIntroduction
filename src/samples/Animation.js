@@ -1,6 +1,6 @@
 import React from 'react';
 import {Animated, Dimensions, StyleSheet, TouchableOpacity, View} from 'react-native';
-import colors from './colors';
+import colors from '../colors';
 
 const duration = 2500;
 const size = 75;
