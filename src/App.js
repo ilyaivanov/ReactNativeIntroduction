@@ -5,7 +5,7 @@ import colors from './colors';
 import Game from './game/Game';
 import Home from './Home';
 import NativeAnimation from './NativeAnimation';
-import SlowAnimation from './slow/SlowAnimation';
+import HtmlAnimation from './html/HtmlAnimation';
 
 const headerProps = {
   headerStyle: {
@@ -38,8 +38,8 @@ const App = StackNavigator({
       ...headerProps
     }),
   },
-  SlowAnimation: {
-    screen: SlowAnimation,
+  HtmlAnimation: {
+    screen: HtmlAnimation,
     navigationOptions: ({navigation}) => ({
       title: `Slow Animation`,
 
